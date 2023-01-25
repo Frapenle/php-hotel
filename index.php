@@ -52,7 +52,17 @@
             'distance_to_center' => 50
         ],
     ];
+
+    $keys = array_keys($hotels);
+    for ($hotel = 0; $hotel < count($hotels); $hotel++) {
+        echo "<br>" . $keys[$hotel] . "<br>";
+        foreach ($hotels[$keys[$hotel]] as $key => $value) {
+            echo $key . ": " . $value . "<br>";
+        }
+    }
     ?>
+
+
 
 </body>
 
