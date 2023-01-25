@@ -52,15 +52,35 @@
             'distance_to_center' => 50
         ],
     ];
-
-    $keys = array_keys($hotels);
-    for ($hotel = 0; $hotel < count($hotels); $hotel++) {
-        echo "<br>" . $keys[$hotel] . "<br>";
-        foreach ($hotels[$keys[$hotel]] as $key => $value) {
-            echo $key . ": " . $value . "<br>";
-        }
-    }
     ?>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">-</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Parcheggio</th>
+                <th scope="col">Voto</th>
+                <th scope="col">Distanza dal centro</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $keys = array_keys($hotels);
+            $count = '1';
+            for ($hotel = 0; $hotel < count($hotels); $hotel++) { ?>
+                <tr>
+                    <th scope="row"><?php echo $count++ ?></th>
+                    <td><?php echo $hotels[$hotel]['name']; ?></td>
+                    <td><?php echo $hotels[$hotel]['description']; ?></td>
+                    <td><?php echo $hotels[$hotel]['parking']; ?></td>
+                    <td><?php echo $hotels[$hotel]['vote']; ?></td>
+                    <td><?php echo $hotels[$hotel]['distance_to_center']; ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 
 
 
