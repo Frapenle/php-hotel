@@ -89,7 +89,7 @@
                         <th scope="row"><?php echo $count++ ?></th>
                         <td><?php echo $hotels[$hotel]['name']; ?></td>
                         <td><?php echo $hotels[$hotel]['description']; ?></td>
-                        //If parking is true => SI, else NO
+                        <!-- If parking is true => SI, else NO -->
                         <td><?php echo ($hotels[$hotel]['parking']) ? "Si" : "No"; ?></td>
                         <td><?php echo $hotels[$hotel]['vote']; ?></td>
                         <td><?php echo $hotels[$hotel]['distance_to_center']; ?></td>
