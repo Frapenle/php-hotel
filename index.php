@@ -85,14 +85,23 @@
             <tbody>
                 <?php
                 $count = '1';
+                $hotels_filtered = $hotels;
+                $hotels_filtered = $hotels;
+                if (isset($_GET['stars']) && is_numeric($_GET['stars'])) {
+                    $stars = $_GET['stars'];
+                    $hotels_filtered = array_filter($hotels, function ($hotel) {
+                        if (isset($_GET['stars']) && is_numeric($_GET['stars'])) {
+                            return $hotel['vote'] >= $_GET['stars'];
+                        }
+                        return true;
+                    });
+                }
                 if (isset($_GET['park']) && $_GET['park'] == 'yes') {
-                    $hotel_has_parking = array_filter($hotels, function ($hotel) {
+                    $hotels_filtered = array_filter($hotels_filtered, function ($hotel) {
                         return $hotel['parking'] === true;
                     });
-                } else {
-                    $hotel_has_parking = $hotels;
                 }
-                foreach ($hotel_has_parking as $hotel) {
+                foreach ($hotels_filtered as $hotel) {
                 ?>
                     <tr>
                         <th scope="row"><?php echo $count++ ?></th>
